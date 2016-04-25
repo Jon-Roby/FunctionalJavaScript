@@ -54,9 +54,13 @@
 
   function checkUsersValid(goodUsers) {
     return function allUsersValid(submittedUsers) {
-      submittedUsers.forEach((submittedUser) => {
-        console.log(submittedUser);
-        goodUsers.some(goodUser => goodUser.id === submittedUser.id);
+      return submittedUsers.every((submittedUser) => {
+        return goodUsers.some((goodUser) => {
+          // console.log("submittedUser ", submittedUser.id);
+          // console.log("goodUser ", goodUser.id);
+          // console.log(goodUser.id === submittedUser.id);
+          return goodUser.id === submittedUser.id;
+        });
       });
     };
   }
