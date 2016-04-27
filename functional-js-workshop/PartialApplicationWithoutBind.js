@@ -74,9 +74,12 @@
 
    var slice = Array.prototype.slice
 
-   function logger(namespace) {
-     // SOLUTION GOES HERE
-   }
+  function logger(namespace) {
+    return function(prepend) {
+      var res = Array.prototype.slice.call(arguments);
+      console.log(namespace + ' ' + res.join(' ')); 
+    };
+  }
 
    module.exports = logger
 
